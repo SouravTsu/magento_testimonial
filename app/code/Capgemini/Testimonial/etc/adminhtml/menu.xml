@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Capgemini_Testimonial::testimonial" title="Testimonials" module="Capgemini_Testimonial" sortOrder="200" resource="Capgemini_Testimonial::testimonial"/>
+        <add id="Capgemini_Testimonial::manage_testimonial" title="Manage Testimonials" module="Capgemini_Testimonial" sortOrder="10" action="testimonial/grid/index" resource="Capgemini_Testimonial::manage_testimonial" parent="Capgemini_Testimonial::testimonial"/>
+    </menu>
+</config>
