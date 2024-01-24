@@ -1,0 +1,10 @@
+<hr>
+<?php foreach ($block->getActiveTestimonials() as $_testimonial) : ?>
+    <div class="block-promo block-content">
+        <strong class="title"> <?php echo $_testimonial->getTitle() ?></strong><br>
+        <span class="info"><?php echo $_testimonial->getBody() ?></span><br>
+        <span class="more icon small"> - <?php echo $_testimonial->getAuthor() ?> | <?php echo $_testimonial->getPublishDate() ?></span>
+    </div>
+
+    <hr>
+<?php endforeach; ?>
