@@ -1,0 +1,54 @@
+<!-- <?php /** @var \Capgemini\Testimonial\Block\Adminhtml\Testimonial\View $block */?>-->
+<?php
+$testimonial=$block->getTestimonial();
+//print_r($ratePackageData);die;
+?>
+<table class="data-grid">
+    <thead>
+    <tr>
+        <th class="data-grid-th">Label</th>
+        <th class="data-grid-th">Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td><?= $testimonial->getId() ?></td>
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td><?= $testimonial->getAuthor() ?></td>
+    </tr>
+    <tr>
+        <td>Titel</td>
+        <td><?= $testimonial->getTitle() ?></td>
+    </tr>
+    <tr>
+        <td>Publish Date</td>
+        <td><?= $testimonial->getPublishDate() ?></td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <?php if ($testimonial->getStatus() == 1) {
+            $statusLevel = 'Active';
+        } else  {
+            $statusLevel = 'Inactive';
+        }
+        ?>
+        <td><?= $statusLevel; ?></>
+    </tr>
+
+    <tr>
+        <td>Body</td>
+        <td><?= $testimonial->getBody() ?></td>
+    </tr>
+    <tr>
+        <td>Updated At</td>
+        <td><?=  $testimonial->getUpdatedAt() ?></td>
+    </tr>
+    <tr>
+        <td>Created At</td>
+        <td><?=  $testimonial->getCreatedAt() ?></td>
+    </tr>
+    </tbody>
+</table>

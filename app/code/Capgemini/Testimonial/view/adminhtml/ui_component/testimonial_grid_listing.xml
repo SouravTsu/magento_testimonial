@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">testimonial_grid_listing.testimonial_grid_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>testimonial_rate_columns</spinner>
+        <deps>
+            <dep>testimonial_grid_listing.testimonial_grid_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="testimonial_grid_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider name="testimonial_grid_listing_data_source" class="Capgemini\Testimonial\Ui\DataProvider\TestimonialDataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters" />
+        <paging name="listing_paging"/>
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions" >
+            <action name="active">
+                <settings>
+                    <confirm>
+                        <message translate="true">Active selected Testimonials?</message>
+                        <title translate="true">Active Testimonials</title>
+                    </confirm>
+                    <url path="*/*/active" />
+                    <type>active</type>
+                    <label translate="true">Active</label>
+                </settings>
+            </action>
+            <action name="inactive">
+                <settings>
+                    <confirm>
+                        <message translate="true">Inactive selected Testimonials?</message>
+                        <title translate="true">Inactive Testimonials</title>
+                    </confirm>
+                    <url path="*/*/inactive" />
+                    <type>inactive</type>
+                    <label translate="true">Inactive</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+    <columns name="testimonial_rate_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="id" sortOrder="5">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="title" sortOrder="50">
+            <settings>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <filter>text</filter>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <column name="body" sortOrder="50">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <label translate="true">Body</label>
+            </settings>
+        </column>
+        <column name="author" sortOrder="50">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <label translate="true">Author Name</label>
+            </settings>
+        </column>
+        <column name="status" sortOrder="60" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Capgemini\Testimonial\Ui\Component\Listing\Column\Status" />
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <column name="publish_date" sortOrder="70" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <sorting>desc</sorting>
+                <label translate="true">Publish Date</label>
+            </settings>
+        </column>
+        <column name="updated_at" sortOrder="75" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <dataType>date</dataType>
+                <sorting>desc</sorting>
+                <filter>dateRange</filter>
+                <label translate="true">Updated At</label>
+            </settings>
+        </column>
+        <column name="created_at" sortOrder="80" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <dataType>date</dataType>
+                <filter>dateRange</filter>
+                <sorting>desc</sorting>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" sortOrder="90" class="Capgemini\Testimonial\Ui\Component\Listing\Column\Actions" >
+            <settings>
+                <indexField>id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>107</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
