@@ -1,4 +1,5 @@
 <?php
+
 namespace Capgemini\Testimonial\Block;
 
 use Capgemini\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory as TestimonialCollectionFactory;
@@ -10,7 +11,7 @@ class View extends \Magento\Framework\View\Element\Template
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        TestimonialCollectionFactory                    $testimonialCollectionFactory)
+        TestimonialCollectionFactory                     $testimonialCollectionFactory)
     {
         $this->testimonialCollectionFactory = $testimonialCollectionFactory;
         parent::__construct( $context );
@@ -18,6 +19,6 @@ class View extends \Magento\Framework\View\Element\Template
 
     public function getActiveTestimonials()
     {
-        return $this->testimonialCollectionFactory->create()->addFieldToFilter( 'status', ['in' => 1] )->setOrder('publish_date', 'DESC');
+        return $this->testimonialCollectionFactory->create()->addFieldToFilter( 'status', ['in' => 1] )->setOrder( 'publish_date', 'DESC' );
     }
 }
