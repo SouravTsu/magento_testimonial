@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation = "urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/testimonials" method="GET">
+        <service class="Capgemini\Testimonial\Api\TestimonialRepositoryInterface" method="getTestimonialList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/testimonial/get/:testimonialId" method="GET">
+        <service class="Capgemini\Testimonial\Api\TestimonialRepositoryInterface" method="getById" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/testimonial/create" method="POST">
+        <service class="Capgemini\Testimonial\Api\TestimonialRepositoryInterface" method="save" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/testimonial/update" method="PUT">
+        <service class="Capgemini\Testimonial\Api\TestimonialRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/testimonial/delete/:id" method="DELETE">
+        <service class="Capgemini\Testimonial\Api\TestimonialRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+<!--    <route url = "/V1/rest_dev/setDescription" method = "PUT">-->
+<!--        <service class = "Dev\RestApi\Api\ProductRepositoryInterface" method = "setDescription" />-->
+<!--        <resources>-->
+<!--            <resource ref = "Dev_RestApi::products_set_description" />-->
+<!--        </resources>-->
+<!--    </route>-->
+</routes>
